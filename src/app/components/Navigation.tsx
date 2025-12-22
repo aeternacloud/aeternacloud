@@ -1,21 +1,34 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Search, Globe, Download } from 'lucide-react';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 20);
+      
+      // Hide navbar when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener('scroll', handleScroll);
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -28,8 +41,6 @@ export function Navigation() {
     { name: 'App Development', path: '/services/app-development' },
     { name: 'UI/UX Design', path: '/services/ui-ux-design' },
     { name: 'Cloud Solutions', path: '/services/cloud-solutions' },
-    { name: 'SEO Services', path: '/services/seo-services' },
-    { name: 'Digital Marketing', path: '/services/digital-marketing' },
   ];
 
   const company = [
@@ -48,37 +59,37 @@ export function Navigation() {
   ];
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: 0 }}
+      animate={{ 
+        y: isVisible ? 0 : -100,
+        opacity: isVisible ? 1 : 0
+      }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-black/95 backdrop-blur-xl border-b border-white/10'
-          : 'bg-black/50 backdrop-blur-md'
+          ? 'bg-transparent border-b border-gray-300/30'
+          : 'bg-transparent border-b border-gray-300/20'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className="max-w-[1920px] mx-auto px-6 lg:px-12">
+        <div className="flex justify-between items-center h-14">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                <span className="font-bold text-white">NC</span>
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-cyan-400 to-purple-400 rounded-full animate-pulse" />
-            </div>
-            <span className="text-xl text-white">NexusCore</span>
+          <Link to="/" className="flex items-center group">
+            <span className="text-lg font-medium text-white">Enterprise IT Solutions</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-6">
             {/* Services Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setActiveDropdown('services')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="px-4 py-2 text-gray-300 hover:text-white transition-colors flex items-center gap-1">
+              <button className="px-3 py-2 text-white hover:text-gray-200 transition-colors flex items-center gap-1 text-sm font-medium">
                 Services
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown className="w-3 h-3" />
               </button>
               <AnimatePresence>
                 {activeDropdown === 'services' && (
@@ -86,13 +97,13 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-64 bg-black/95 backdrop-blur-xl rounded-xl border border-white/10 overflow-hidden shadow-2xl shadow-purple-500/10"
+                    className="absolute top-full left-0 mt-2 w-56 bg-black/98 rounded-lg border border-white/10 overflow-hidden shadow-2xl"
                   >
                     {services.map((service) => (
                       <Link
                         key={service.path}
                         to={service.path}
-                        className="block px-4 py-3 text-gray-300 hover:bg-purple-600/20 hover:text-white transition-colors border-b border-white/5 last:border-0"
+                        className="block px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors border-b border-white/5 last:border-0 text-sm"
                       >
                         {service.name}
                       </Link>
@@ -108,9 +119,9 @@ export function Navigation() {
               onMouseEnter={() => setActiveDropdown('company')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="px-4 py-2 text-gray-300 hover:text-white transition-colors flex items-center gap-1">
+              <button className="px-3 py-2 text-white hover:text-gray-200 transition-colors flex items-center gap-1 text-sm font-medium">
                 Company
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown className="w-3 h-3" />
               </button>
               <AnimatePresence>
                 {activeDropdown === 'company' && (
@@ -118,13 +129,13 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-xl rounded-xl border border-white/10 overflow-hidden shadow-2xl shadow-cyan-500/10"
+                    className="absolute top-full left-0 mt-2 w-48 bg-black/98 rounded-lg border border-white/10 overflow-hidden shadow-2xl"
                   >
                     {company.map((item) => (
                       <Link
                         key={item.path}
                         to={item.path}
-                        className="block px-4 py-3 text-gray-300 hover:bg-cyan-600/20 hover:text-white transition-colors border-b border-white/5 last:border-0"
+                        className="block px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors border-b border-white/5 last:border-0 text-sm"
                       >
                         {item.name}
                       </Link>
@@ -140,9 +151,9 @@ export function Navigation() {
               onMouseEnter={() => setActiveDropdown('resources')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="px-4 py-2 text-gray-300 hover:text-white transition-colors flex items-center gap-1">
+              <button className="px-3 py-2 text-white hover:text-gray-200 transition-colors flex items-center gap-1 text-sm font-medium">
                 Resources
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown className="w-3 h-3" />
               </button>
               <AnimatePresence>
                 {activeDropdown === 'resources' && (
@@ -150,13 +161,13 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-xl rounded-xl border border-white/10 overflow-hidden shadow-2xl shadow-purple-500/10"
+                    className="absolute top-full left-0 mt-2 w-48 bg-black/98 rounded-lg border border-white/10 overflow-hidden shadow-2xl"
                   >
                     {resources.map((item) => (
                       <Link
                         key={item.path}
                         to={item.path}
-                        className="block px-4 py-3 text-gray-300 hover:bg-purple-600/20 hover:text-white transition-colors border-b border-white/5 last:border-0"
+                        className="block px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors border-b border-white/5 last:border-0 text-sm"
                       >
                         {item.name}
                       </Link>
@@ -166,23 +177,31 @@ export function Navigation() {
               </AnimatePresence>
             </div>
 
+            {/* Contact */}
             <Link
               to="/contact"
-              className="px-4 py-2 text-gray-300 hover:text-white transition-colors"
+              className="px-3 py-2 text-white hover:text-gray-200 transition-colors text-sm font-medium"
             >
               Contact
             </Link>
+
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Link
-              to="/contact"
-              className="px-6 py-2.5 bg-gradient-to-r from-purple-600 to-cyan-600 text-white rounded-xl hover:shadow-lg hover:shadow-purple-500/50 transition-all relative overflow-hidden group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="relative z-10">Get Started</span>
-            </Link>
+          {/* Right Icons */}
+          <div className="hidden lg:flex items-center gap-1">
+            <div className="h-5 w-px bg-white/30 mx-2" />
+            <button className="p-2 text-white hover:text-white/80 transition-colors">
+              <Search className="w-5 h-5" />
+            </button>
+            <div className="h-5 w-px bg-white/30" />
+            <button className="p-2 text-white hover:text-white/80 transition-colors flex items-center gap-1">
+              <Globe className="w-5 h-5" />
+              <ChevronDown className="w-3 h-3" />
+            </button>
+            <div className="h-5 w-px bg-white/30" />
+            <button className="p-2 text-white hover:text-white/80 transition-colors">
+              <Download className="w-5 h-5" />
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -202,17 +221,17 @@ export function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/10"
+            className="lg:hidden bg-black/95 border-t border-gray-300/20"
           >
             <div className="max-w-7xl mx-auto px-4 py-4 space-y-2">
               {/* Services */}
               <div className="border-b border-white/10 pb-2">
-                <div className="text-white mb-2">Services</div>
+                <div className="text-white mb-2 text-sm font-medium">Services</div>
                 {services.map((service) => (
                   <Link
                     key={service.path}
                     to={service.path}
-                    className="block py-2 pl-4 text-sm text-gray-400 hover:text-purple-400"
+                    className="block py-2 pl-4 text-sm text-gray-400 hover:text-white"
                   >
                     {service.name}
                   </Link>
@@ -221,12 +240,12 @@ export function Navigation() {
 
               {/* Company */}
               <div className="border-b border-white/10 pb-2">
-                <div className="text-white mb-2">Company</div>
+                <div className="text-white mb-2 text-sm font-medium">Company</div>
                 {company.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className="block py-2 pl-4 text-sm text-gray-400 hover:text-cyan-400"
+                    className="block py-2 pl-4 text-sm text-gray-400 hover:text-white"
                   >
                     {item.name}
                   </Link>
@@ -235,12 +254,12 @@ export function Navigation() {
 
               {/* Resources */}
               <div className="border-b border-white/10 pb-2">
-                <div className="text-white mb-2">Resources</div>
+                <div className="text-white mb-2 text-sm font-medium">Resources</div>
                 {resources.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className="block py-2 pl-4 text-sm text-gray-400 hover:text-purple-400"
+                    className="block py-2 pl-4 text-sm text-gray-400 hover:text-white"
                   >
                     {item.name}
                   </Link>
@@ -249,21 +268,27 @@ export function Navigation() {
 
               <Link
                 to="/contact"
-                className="block py-2 text-gray-300 hover:text-white"
+                className="block py-2 text-gray-300 hover:text-white text-sm"
               >
                 Contact
               </Link>
 
-              <Link
-                to="/contact"
-                className="block mt-4 px-6 py-2.5 bg-gradient-to-r from-purple-600 to-cyan-600 text-white rounded-xl text-center"
-              >
-                Get Started
-              </Link>
+              {/* Icons */}
+              <div className="flex items-center gap-4 pt-2">
+                <button className="p-2 text-white">
+                  <Search className="w-5 h-5" />
+                </button>
+                <button className="p-2 text-white">
+                  <Globe className="w-5 h-5" />
+                </button>
+                <button className="p-2 text-white">
+                  <Download className="w-5 h-5" />
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 }

@@ -2,7 +2,6 @@ import { Hero } from '../components/Hero';
 import { ServicesGrid } from '../components/ServicesGrid';
 import { Testimonials } from '../components/Testimonials';
 import { CTASection } from '../components/CTASection';
-import { AIAssistant } from '../components/AIAssistant';
 
 export function Home() {
   return (
@@ -11,7 +10,6 @@ export function Home() {
       <ServicesGrid />
       <Testimonials />
       <CTASection />
-      <AIAssistant />
     </div>
   );
 }
