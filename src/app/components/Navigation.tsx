@@ -4,6 +4,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown, Search, Globe, Download, Code2, Smartphone, Palette, Cloud, Monitor, Building2, Briefcase, Newspaper, FileText, TrendingUp, ScrollText, HelpCircle } from 'lucide-react';
 import { pageIndex } from '../../utils/searchIndex'; // Import pageIndex
 
+// Define the SearchablePage interface locally
+interface SearchablePage {
+  title: string;
+  path: string;
+  keywords?: string[];
+}
+
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -12,7 +19,7 @@ export function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false); // State for search modal
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
-  const [searchResults, setSearchResults] = useState<typeof pageIndex>([]); // State for search results
+  const [searchResults, setSearchResults] = useState<SearchablePage[]>([]); // State for search results
   const location = useLocation();
   const navigate = useNavigate(); // Add useNavigate hook
   const isHomePage = location.pathname === '/';

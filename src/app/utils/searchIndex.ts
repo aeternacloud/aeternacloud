@@ -1,12 +1,4 @@
-// src/app/utils/searchIndex.ts
-
-interface SearchablePage {
-  title: string;
-  path: string;
-  keywords?: string[];
-}
-
-export const pageIndex: SearchablePage[] = [
+export const pageIndex = [
   { title: 'Home', path: '/' },
   { title: 'Contact', path: '/contact' },
   { title: 'About', path: '/company/about' },
