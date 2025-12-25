@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ChevronDown, Search, Globe, Download, Code2, Smartphone, Palette, Cloud, Monitor, Building2, Briefcase, Newspaper, FileText, TrendingUp, ScrollText, HelpCircle, LifeBuoy } from 'lucide-react';
+import { Menu, X, ChevronDown, Search, Globe, Download, Code2, Smartphone, Palette, Cloud, Monitor, Building2, Briefcase, Newspaper, FileText, TrendingUp, ScrollText, HelpCircle } from 'lucide-react';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,6 +9,8 @@ export function Navigation() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false); // State for search modal
+  const [searchQuery, setSearchQuery] = useState(''); // State for search query
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -34,7 +36,23 @@ export function Navigation() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setActiveDropdown(null);
+    setIsSearchOpen(false); // Close search when navigating
+    setSearchQuery(''); // Clear search query when navigating
   }, [location]);
+
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
+
+  const handleSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && searchQuery.trim() !== '') {
+      console.log('Searching for:', searchQuery.trim());
+      // In a real application, you would navigate to a search results page
+      // or filter content here.
+      setIsSearchOpen(false); // Close the search modal after search
+      setSearchQuery(''); // Clear the search query
+    }
+  };
 
   const services = [
     { name: 'Software Development', path: '/services/software-development', icon: Code2 },
@@ -47,20 +65,18 @@ export function Navigation() {
   const company = [
     { name: 'About Us', path: '/company/about', icon: Building2 },
     { name: 'Careers', path: '/company/careers', icon: Briefcase },
-    { name: 'Blog', path: '/company/blog', icon: Newspaper },
   ];
 
   const resources = [
     { name: 'Documentation', path: '/resources/documentation', icon: FileText },
     { name: 'Case Studies', path: '/resources/case-studies', icon: TrendingUp },
     { name: 'FAQ', path: '/resources/faq', icon: HelpCircle },
-    { name: 'Support', path: '/resources/support', icon: LifeBuoy },
   ];
 
   return (
     <motion.nav
       initial={{ y: 0 }}
-      animate={{ 
+      animate={{
         y: isVisible ? 0 : -100,
         opacity: isVisible ? 1 : 0
       }}
@@ -75,7 +91,7 @@ export function Navigation() {
         <div className="flex justify-between items-center h-14">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <span className="text-lg font-medium text-white">AeternaCloud</span>
+            <span className="text-lg font-medium text-white">Aeterna Cloud</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -206,7 +222,7 @@ export function Navigation() {
           {/* Right Icons */}
           <div className="hidden lg:flex items-center gap-1">
             <div className="h-5 w-px bg-white/30 mx-2" />
-            <button className="p-2 text-white hover:text-white/80 transition-colors">
+            <button className="p-2 text-white hover:text-white/80 transition-colors" onClick={toggleSearch}>
               <Search className="w-5 h-5" />
             </button>
           </div>
@@ -287,6 +303,45 @@ export function Navigation() {
                 </button>
               </div>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Search Modal */}
+      <AnimatePresence>
+        {isSearchOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-start justify-center p-4"
+            onClick={toggleSearch} // Close modal when clicking outside
+          >
+            <motion.div
+              initial={{ y: -50 }}
+              animate={{ y: 0 }}
+              exit={{ y: -50 }}
+              className="relative w-full max-w-2xl bg-black rounded-lg shadow-xl border border-white/10 mt-20"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+            >
+              <div className="flex items-center p-4 border-b border-white/10">
+                <Search className="w-5 h-5 text-gray-400 mr-3" />
+                <input
+                  type="text"
+                  placeholder="Search Aeterna Cloud..."
+                  className="flex-grow bg-transparent text-white placeholder-gray-500 focus:outline-none text-lg"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={handleSearch}
+                />
+                <button onClick={toggleSearch} className="p-2 text-gray-400 hover:text-white">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="p-4 text-gray-500 text-sm">
+                Type your query and press Enter to search.
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
