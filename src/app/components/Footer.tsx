@@ -16,9 +16,7 @@ export function Footer() {
 
   const company = [
     { name: 'About Us', path: '/company/about' },
-    { name: 'Our Team', path: '/company/team' },
     { name: 'Careers', path: '/company/careers' },
-    { name: 'Blog', path: '/company/blog' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -26,7 +24,6 @@ export function Footer() {
     { name: 'Documentation', path: '/resources/documentation' },
     { name: 'Case Studies', path: '/resources/case-studies' },
     { name: 'FAQ', path: '/resources/faq' },
-    { name: 'Support', path: '/resources/support' },
   ];
 
   const legal = [
@@ -82,7 +79,7 @@ export function Footer() {
           {/* Brand Column (Original Content) */}
           <div className="lg:col-span-4 space-y-6">
             <Link to="/" className="inline-flex items-center gap-3 group">
-              <span className="text-2xl text-white font-medium">AeternaCloud</span>
+              <span className="text-2xl text-white font-medium">Aeterna Cloud</span>
             </Link>
 
             <p className="text-gray-400 leading-relaxed text-base max-w-sm">
@@ -205,7 +202,7 @@ export function Footer() {
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
             {/* Copyright & Legal Links */}
             <div className="flex flex-col sm:flex-row items-center gap-6 text-sm text-gray-400">
-              <p>© 2025 AeternaCloud. All rights reserved.</p>
+              <p>© 2025 Aeterna Cloud. All rights reserved.</p>
               <div className="flex gap-1">
                 <span className="hidden sm:inline text-gray-600">|</span>
                 <div className="flex gap-8">

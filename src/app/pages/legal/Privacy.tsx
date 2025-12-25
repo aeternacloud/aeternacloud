@@ -21,7 +21,7 @@ export function Privacy() {
               <div>
                 <h2 className="text-gray-900 mb-4">1. Introduction</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  NexusCore ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+                  Aeterna Cloud ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
                 </p>
               </div>
 
@@ -95,7 +95,7 @@ export function Privacy() {
                 <p className="text-gray-600 leading-relaxed">
                   If you have questions about this Privacy Policy, please contact us at:
                   <br />
-                  Email: privacy@nexuscore.com
+                  Email: privacy@aeternacloud.com
                   <br />
                   Phone: +1 (555) 123-4567
                 </p>

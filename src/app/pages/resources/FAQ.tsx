@@ -10,7 +10,7 @@ export function FAQ() {
       category: 'General',
       questions: [
         {
-          q: 'What services does NexusCore offer?',
+          q: 'What services does Aeterna Cloud offer?',
           a: 'We offer comprehensive technology solutions including Software Development, Web Development, App Development, UI/UX Design, Cloud Solutions, SEO Services, and Digital Marketing.',
         },
         {

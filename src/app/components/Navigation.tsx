@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown, Search, Globe, Download, Code2, Smartphone, Palette, Cloud, Monitor, Building2, Briefcase, Newspaper, FileText, TrendingUp, ScrollText, HelpCircle } from 'lucide-react';
-import { pageIndex } from '../../utils/searchIndex.ts'; // Import pageIndex
+import { pageIndex } from '../utils/searchIndex.ts'; // Import pageIndex
 
 // Define the SearchablePage interface locally
 interface SearchablePage {

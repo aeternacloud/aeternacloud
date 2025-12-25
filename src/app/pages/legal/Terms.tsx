@@ -21,14 +21,14 @@ export function Terms() {
               <div>
                 <h2 className="text-gray-900 mb-4">1. Acceptance of Terms</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  By accessing and using NexusCore's services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms & Conditions, please do not use our services.
+                  By accessing and using Aeterna Cloud's services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms & Conditions, please do not use our services.
                 </p>
               </div>
 
               <div>
                 <h2 className="text-gray-900 mb-4">2. Services Description</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  NexusCore provides software development, web development, mobile app development, UI/UX design, cloud solutions, SEO services, and digital marketing services. The specific scope of services will be defined in individual service agreements or statements of work.
+                  Aeterna Cloud provides software development, web development, mobile app development, UI/UX design, cloud solutions, SEO services, and digital marketing services. The specific scope of services will be defined in individual service agreements or statements of work.
                 </p>
               </div>
 
@@ -49,7 +49,7 @@ export function Terms() {
               <div>
                 <h2 className="text-gray-900 mb-4">4. Intellectual Property</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  All content, features, and functionality of our services are owned by NexusCore and are protected by international copyright, trademark, and other intellectual property laws. Work products delivered to clients will be governed by the specific terms outlined in individual service agreements.
+                  All content, features, and functionality of our services are owned by Aeterna Cloud and are protected by international copyright, trademark, and other intellectual property laws. Work products delivered to clients will be governed by the specific terms outlined in individual service agreements.
                 </p>
               </div>
 
@@ -70,7 +70,7 @@ export function Terms() {
               <div>
                 <h2 className="text-gray-900 mb-4">7. Limitation of Liability</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  To the fullest extent permitted by law, NexusCore shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use our services.
+                  To the fullest extent permitted by law, Aeterna Cloud shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use our services.
                 </p>
               </div>
 
@@ -93,7 +93,7 @@ export function Terms() {
                 <p className="text-gray-600 leading-relaxed">
                   For questions about these Terms & Conditions, please contact us at:
                   <br />
-                  Email: legal@nexuscore.com
+                  Email: legal@aeternacloud.com
                   <br />
                   Phone: +1 (555) 123-4567
                 </p>

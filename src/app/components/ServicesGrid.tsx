@@ -56,9 +56,13 @@ export function ServicesGrid() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-600 via-cyan-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+            <motion.span 
+              className="bg-gradient-to-r from-purple-600 via-cyan-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_auto]"
+              animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            >
               Our Services
-            </span>
+            </motion.span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             Driving innovation and improving lives with AI-driven intelligence.
@@ -137,20 +141,6 @@ export function ServicesGrid() {
           })}
         </div>
       </div>
-
-      <style>{`
-        @keyframes gradient {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        .animate-gradient {
-          animation: gradient 8s ease infinite;
-        }
-      `}</style>
     </section>
   );
 }

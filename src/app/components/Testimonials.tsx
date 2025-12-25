@@ -1,4 +1,3 @@
-import Slider from 'react-slick';
 import { motion } from 'motion/react';
 import { Quote } from 'lucide-react';
 
@@ -7,51 +6,32 @@ const testimonials = [
     quote: 'TechHorizon transformed our digital infrastructure with their exceptional software solutions. Their team delivered beyond our expectations.',
     author: 'Sarah Johnson',
     role: 'CTO',
-    company: 'GlobalTech Inc.',
     logo: 'https://images.unsplash.com/photo-1694702740570-0a31ee1525c7?w=100',
   },
   {
     quote: 'The SEO results speak for themselves. Our organic traffic increased by 300% within six months. Highly recommended!',
     author: 'Michael Chen',
     role: 'Marketing Director',
-    company: 'Innovate Solutions',
     logo: 'https://images.unsplash.com/photo-1694702740570-0a31ee1525c7?w=100',
   },
   {
     quote: 'Outstanding web development expertise. They created a stunning, high-performance platform that our customers love.',
     author: 'Emma Williams',
     role: 'CEO',
-    company: 'FutureTech',
     logo: 'https://images.unsplash.com/photo-1694702740570-0a31ee1525c7?w=100',
   },
   {
     quote: 'Professional, reliable, and innovative. TechHorizon is our go-to partner for all digital transformation projects.',
     author: 'David Rodriguez',
     role: 'VP of Engineering',
-    company: 'Digital Dynamics',
     logo: 'https://images.unsplash.com/photo-1694702740570-0a31ee1525c7?w=100',
   },
 ];
 
+// Duplicate testimonials for seamless infinite scroll
+const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
+
 export function Testimonials() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
 
   return (
     <section className="py-10 lg:py-12 px-6 bg-black relative overflow-hidden">
@@ -87,75 +67,103 @@ export function Testimonials() {
           </p>
         </motion.div>
 
-        {/* Carousel */}
-        <Slider {...settings} className="testimonials-slider">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="px-4">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.85, y: 40 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ 
-                  duration: 0.7, 
-                  delay: index * 0.1,
-                  ease: [0.16, 1, 0.3, 1]
-                }}
-                whileHover={{ 
-                  scale: 1.03,
-                  y: -5,
-                  transition: { duration: 0.3 }
-                }}
-                className="bg-white/5 backdrop-blur-xl rounded-2xl p-5 lg:p-6 border border-white/10 hover:border-purple-500/30 transition-all duration-300 h-full relative overflow-hidden group"
-              >
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-transparent to-cyan-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Quote Icon */}
-                <div className="mb-3 relative z-10">
-                  <Quote className="w-8 h-8 text-transparent bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text" style={{ WebkitTextFillColor: 'transparent' }} />
-                  <div className="absolute inset-0">
-                    <Quote className="w-8 h-8 text-cyan-400/50" />
-                  </div>
-                </div>
+        {/* Infinite Horizontal Marquee */}
+        <div className="relative overflow-hidden">
+          <div className="marquee-container">
+            <div className="marquee-content">
+              {duplicatedTestimonials.map((testimonial, index) => (
+                <motion.div
+                  key={`${testimonial.author}-${index}`}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{
+                    duration: 0.6,
+                    delay: (index % testimonials.length) * 0.1,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    y: -5,
+                    transition: { duration: 0.3 }
+                  }}
+                  className="bg-white/5 backdrop-blur-xl rounded-2xl p-5 lg:p-6 border border-white/10 hover:border-purple-500/30 transition-all duration-300 mx-4 min-w-[400px] relative overflow-hidden group"
+                >
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-transparent to-cyan-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {/* Quote Text */}
-                <p className="text-white text-sm leading-relaxed mb-4 relative z-10">
-                  "{testimonial.quote}"
-                </p>
+                  {/* Quote Icon */}
+                  <div className="mb-3 relative z-10">
+                    <Quote className="w-8 h-8 text-transparent bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text" style={{ WebkitTextFillColor: 'transparent' }} />
+                    <div className="absolute inset-0">
+                      <Quote className="w-8 h-8 text-cyan-400/50" />
+                    </div>
+                  </div>
 
-                {/* Author Info */}
-                <div className="flex items-center gap-3 relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-cyan-500/20 backdrop-blur-sm overflow-hidden border-2 border-purple-500/30 group-hover:border-cyan-500/50 transition-colors">
-                    <img
-                      src={testimonial.logo}
-                      alt={testimonial.company}
-                      className="w-full h-full object-cover"
-                    />
+                  {/* Quote Text */}
+                  <p className="text-white text-sm leading-relaxed mb-4 relative z-10">
+                    "{testimonial.quote}"
+                  </p>
+
+                  {/* Author Info */}
+                  <div className="flex items-center gap-3 relative z-10">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-cyan-500/20 backdrop-blur-sm overflow-hidden border-2 border-purple-500/30 group-hover:border-cyan-500/50 transition-colors">
+                      <img
+                        src={testimonial.logo}
+                        alt={`${testimonial.author} - ${testimonial.role}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="text-white text-sm font-medium">{testimonial.author}</h4>
+                      <p className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent text-xs">{testimonial.role}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-white text-sm font-medium">{testimonial.author}</h4>
-                    <p className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent text-xs">{testimonial.role}</p>
-                    <p className="text-gray-400 text-xs">{testimonial.company}</p>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              ))}
             </div>
-          ))}
-        </Slider>
+          </div>
+        </div>
       </div>
 
       <style>{`
-        .testimonials-slider .slick-dots {
-          bottom: -40px;
+        .marquee-container {
+          overflow: hidden;
+          width: 100%;
         }
-        .testimonials-slider .slick-dots li button:before {
-          color: white;
-          font-size: 12px;
-          opacity: 0.3;
+
+        .marquee-content {
+          display: flex;
+          animation: scroll 25s linear infinite;
+          width: calc(400px * 12); /* 4 testimonials * 3 duplicates * 400px width + margins */
         }
-        .testimonials-slider .slick-dots li.slick-active button:before {
-          opacity: 1;
-          color: #a855f7;
+
+        .marquee-content:hover {
+          animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-400px * 4)); /* Move by 4 testimonials worth */
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .marquee-content {
+            width: calc(400px * 12);
+          }
+
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-400px * 4));
+            }
+          }
         }
       `}</style>
     </section>

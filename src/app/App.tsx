@@ -19,23 +19,26 @@ import { DigitalMarketing } from './pages/services/DigitalMarketing';
 
 // Company Pages
 import { About } from './pages/company/About';
-import { Team } from './pages/company/Team';
 import { Careers } from './pages/company/Careers';
-import { Blog } from './pages/company/Blog';
 
 // Resource Pages
 import { Documentation } from './pages/resources/Documentation';
 import { CaseStudies } from './pages/resources/CaseStudies';
-import { Whitepapers } from './pages/resources/Whitepapers';
 import { FAQ } from './pages/resources/FAQ';
 import { Support } from './pages/resources/Support';
+
+// Documentation Pages
+import { GettingStarted } from './pages/resources/documentation/GettingStarted';
+import { ApiReference } from './pages/resources/documentation/ApiReference';
+import { BestPractices } from './pages/resources/documentation/BestPractices';
+import { Troubleshooting } from './pages/resources/documentation/Troubleshooting';
+import { Changelog } from './pages/resources/documentation/Changelog';
+import { SecurityAndCompliance } from './pages/resources/documentation/SecurityAndCompliance';
+import { Glossary } from './pages/resources/documentation/Glossary';
 
 // Legal Pages
 import { Privacy } from './pages/legal/Privacy';
 import { Terms } from './pages/legal/Terms';
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 export default function App() {
   return (
@@ -60,16 +63,22 @@ export default function App() {
 
           {/* Company */}
           <Route path="/company/about" element={<About />} />
-          <Route path="/company/team" element={<Team />} />
           <Route path="/company/careers" element={<Careers />} />
-          <Route path="/company/blog" element={<Blog />} />
 
           {/* Resources */}
           <Route path="/resources/documentation" element={<Documentation />} />
           <Route path="/resources/case-studies" element={<CaseStudies />} />
-          <Route path="/resources/whitepapers" element={<Whitepapers />} />
           <Route path="/resources/faq" element={<FAQ />} />
           <Route path="/resources/support" element={<Support />} />
+
+          {/* Documentation Pages */}
+          <Route path="/resources/documentation/getting-started" element={<GettingStarted />} />
+          <Route path="/resources/documentation/api-reference" element={<ApiReference />} />
+          <Route path="/resources/documentation/best-practices" element={<BestPractices />} />
+          <Route path="/resources/documentation/troubleshooting" element={<Troubleshooting />} />
+          <Route path="/resources/documentation/changelog" element={<Changelog />} />
+          <Route path="/resources/documentation/security-and-compliance" element={<SecurityAndCompliance />} />
+          <Route path="/resources/documentation/glossary" element={<Glossary />} />
 
           {/* Legal */}
           <Route path="/legal/privacy" element={<Privacy />} />

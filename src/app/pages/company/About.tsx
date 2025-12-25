@@ -43,7 +43,7 @@ export function About() {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="mb-6">
-              <span className="block text-gray-900">About NexusCore</span>
+              <span className="block text-gray-900">About Aeterna Cloud</span>
               <span className="block bg-gradient-to-r from-[#0052CC] via-[#00C2FF] to-[#0052CC] bg-clip-text text-transparent">
                 Building The Future
               </span>

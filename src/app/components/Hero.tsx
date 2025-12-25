@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export function Hero() {
   return (
@@ -31,14 +30,6 @@ export function Hero() {
         <div className="absolute bottom-0 right-0 w-40 h-20 bg-black/95" />
       </div>
 
-      {/* Navigation Arrows */}
-      <button className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 text-white/80 hover:text-white transition-colors">
-        <ChevronLeft className="w-8 h-8" /> {/* Increased size slightly */}
-      </button>
-      <button className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 text-white/80 hover:text-white transition-colors">
-        <ChevronRight className="w-8 h-8" />
-      </button>
-
       {/* Main Content */}
       <div className="relative z-10 max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-20 w-full">
         <div className="flex flex-col items-start max-w-4xl"> {/* Restricted width for text block */}
@@ -52,9 +43,9 @@ export function Hero() {
               >
                 {/* CHANGE 2: Added <br /> tags and adjusted leading/font-weight */}
                 <h1 className="text-6xl sm:text-7xl md:text-8xl font-medium text-white leading-[1.1] tracking-tight mb-0">
-                  We <br />
-                  reimagine <br />
-                  tomorrow
+                  Build <br />
+                  Beyond <br />
+                  Boundaries
                 </h1>
               </motion.div>
 

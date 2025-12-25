@@ -198,7 +198,7 @@ export function SoftwareDevelopment() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-gray-900 mb-6">Why Choose NexusCore?</h2>
+              <h2 className="text-gray-900 mb-6">Why Choose Aeterna Cloud?</h2>
               <p className="text-gray-600 mb-8">
                 Partner with a team that's committed to your success. We combine technical expertise with business acumen to deliver software that truly makes a difference.
               </p>
