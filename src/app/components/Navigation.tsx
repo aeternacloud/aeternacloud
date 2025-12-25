@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown, Search, Globe, Download, Code2, Smartphone, Palette, Cloud, Monitor, Building2, Briefcase, Newspaper, FileText, TrendingUp, ScrollText, HelpCircle } from 'lucide-react';
+import { pageIndex } from '../../utils/searchIndex'; // Import pageIndex
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,7 +12,9 @@ export function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false); // State for search modal
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
+  const [searchResults, setSearchResults] = useState<typeof pageIndex>([]); // State for search results
   const location = useLocation();
+  const navigate = useNavigate(); // Add useNavigate hook
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
@@ -38,19 +41,40 @@ export function Navigation() {
     setActiveDropdown(null);
     setIsSearchOpen(false); // Close search when navigating
     setSearchQuery(''); // Clear search query when navigating
+    setSearchResults([]); // Clear search results when navigating
   }, [location]);
+
+  useEffect(() => {
+    if (searchQuery.trim() === '') {
+      setSearchResults([]);
+      return;
+    }
+    const filteredResults = pageIndex.filter(page =>
+      page.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      page.path.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSearchResults(filteredResults);
+  }, [searchQuery]);
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
   };
 
   const handleSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter' && searchQuery.trim() !== '') {
-      console.log('Searching for:', searchQuery.trim());
-      // In a real application, you would navigate to a search results page
-      // or filter content here.
-      setIsSearchOpen(false); // Close the search modal after search
-      setSearchQuery(''); // Clear the search query
+    if (event.key === 'Enter') {
+      if (searchResults.length > 0) {
+        navigate(searchResults[0].path);
+        setIsSearchOpen(false);
+        setSearchQuery('');
+        setSearchResults([]);
+      } else if (searchQuery.trim() !== '') {
+        // Optionally, handle "no results found" or a different search action
+        console.log('No results found for:', searchQuery.trim());
+        setIsSearchOpen(false);
+        setSearchQuery('');
+      } else {
+        setIsSearchOpen(false); // Close if Enter pressed on empty query
+      }
     }
   };
 
@@ -338,9 +362,35 @@ export function Navigation() {
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              <div className="p-4 text-gray-500 text-sm">
-                Type your query and press Enter to search.
-              </div>
+              {searchQuery.trim() !== '' && searchResults.length > 0 && (
+                <div className="max-h-80 overflow-y-auto">
+                  {searchResults.map((result) => (
+                    <Link
+                      key={result.path}
+                      to={result.path}
+                      className="block px-4 py-3 text-gray-300 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-cyan-600/20 hover:text-white transition-all duration-200 border-b border-white/5 last:border-0"
+                      onClick={() => {
+                        navigate(result.path);
+                        setIsSearchOpen(false);
+                        setSearchQuery('');
+                        setSearchResults([]);
+                      }}
+                    >
+                      {result.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+              {searchQuery.trim() !== '' && searchResults.length === 0 && (
+                <div className="p-4 text-gray-500 text-sm">
+                  No results found for "{searchQuery}".
+                </div>
+              )}
+              {searchQuery.trim() === '' && (
+                <div className="p-4 text-gray-500 text-sm">
+                  Type your query and press Enter to search.
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}
