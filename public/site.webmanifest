@@ -1,0 +1,17 @@
+{
+    "name": "AeternaCloud - Enterprise IT Solutions",
+    "short_name": "AeternaCloud",
+    "description": "Leading enterprise IT solutions provider specializing in cloud services, software development, digital marketing, and UI/UX design.",
+    "icons": [
+        {
+            "src": "/faviconnobg.png",
+            "sizes": "any",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#0052CC",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/"
+}

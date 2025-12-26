@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -61,6 +62,11 @@ export function FAQ() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="FAQ - Frequently Asked Questions | AeternaCloud"
+        description="Find answers to common questions about our IT solutions, services, pricing, and support. Get the information you need to make informed decisions."
+        url="https://aeternacloud.com/resources/faq"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-4xl mx-auto">

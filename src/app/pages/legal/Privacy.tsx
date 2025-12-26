@@ -1,8 +1,14 @@
 import { motion } from 'motion/react';
+import { SEO } from '../../components/SEO';
 
 export function Privacy() {
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Privacy Policy | AeternaCloud"
+        description="Learn how AeternaCloud collects, uses, and protects your personal information. Our commitment to data privacy and security."
+        url="https://aeternacloud.com/legal/privacy"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-4xl mx-auto">

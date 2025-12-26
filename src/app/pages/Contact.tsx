@@ -4,6 +4,7 @@ import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { toast } from 'sonner';
 import { supabase } from '../../../supabaseClient';
+import { SEO } from '../components/SEO';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -101,6 +102,11 @@ export function Contact() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Contact AeternaCloud - Get in Touch for IT Solutions"
+        description="Ready to transform your business? Contact AeternaCloud for enterprise IT solutions, software development, and digital services. Let's discuss your project."
+        url="https://aeternacloud.com/contact"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

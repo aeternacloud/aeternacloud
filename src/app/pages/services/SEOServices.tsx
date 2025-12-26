@@ -1,13 +1,14 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Search, TrendingUp, FileText, Link as LinkIcon, BarChart, Target, ArrowRight } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function SEOServices() {
   const features = [
     {
       icon: Search,
       title: 'Technical SEO Audit',
-      description: 'Comprehensive site analysis to identify and fix technical SEO issues.',
+      description: 'Comprehensive audits to identify and fix technical SEO issues.',
     },
     {
       icon: FileText,
@@ -38,6 +39,11 @@ export function SEOServices() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="SEO Services & Digital Marketing | AeternaCloud"
+        description="Professional SEO services including technical audits, content optimization, link building, and local SEO. Boost your search rankings and organic traffic."
+        url="https://aeternacloud.com/services/seo-services"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

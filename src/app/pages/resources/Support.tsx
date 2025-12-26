@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { MessageCircle, Mail, Phone, Clock, ArrowRight } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function Support() {
   const channels = [
@@ -29,6 +30,11 @@ export function Support() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Support & Help Center | AeternaCloud"
+        description="Get help and support for AeternaCloud services. Contact our team through live chat, email, phone, or browse our knowledge base."
+        url="https://aeternacloud.com/resources/support"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-4xl mx-auto">

@@ -1,13 +1,14 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Smartphone, Tablet, Monitor, Zap, Users, Star, ArrowRight } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function AppDevelopment() {
   const features = [
     {
       icon: Smartphone,
       title: 'Native iOS & Android Apps',
-      description: 'Platform-specific apps that leverage the full power of iOS and Android ecosystems.',
+      description: 'High-performance native applications built specifically for each platform.',
     },
     {
       icon: Monitor,
@@ -43,6 +44,11 @@ export function AppDevelopment() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Mobile App Development Services | AeternaCloud"
+        description="Custom mobile app development for iOS and Android. Native and cross-platform solutions with modern UI/UX, cloud integration, and scalable architecture."
+        url="https://aeternacloud.com/services/app-development"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ChevronRight, Lock, FileText, AlertTriangle } from 'lucide-react';
+import { SEO } from '@/app/components/SEO';
 
 const Breadcrumb = () => (
   <nav className="flex items-center text-sm text-gray-500">
@@ -12,6 +13,11 @@ const Breadcrumb = () => (
 export function SecurityAndCompliance() {
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Security & Compliance | AeternaCloud Documentation"
+        description="Learn about AeternaCloud's security measures, data protection policies, compliance standards, and best practices for secure IT operations."
+        url="https://aeternacloud.com/resources/documentation/security-and-compliance"
+      />
       <div className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto">

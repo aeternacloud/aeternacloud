@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
+import { SEO } from '@/app/components/SEO';
 
 const Breadcrumb = () => (
   <nav className="flex items-center text-sm text-gray-500">
@@ -12,7 +13,7 @@ const Breadcrumb = () => (
 export function Changelog() {
   const releases = [
     {
-      version: '3.0.0',
+      version: '2.6.0',
       date: 'December 20, 2023',
       changes: [
         { type: 'New', description: 'Introduced a new dashboard analytics view for real-time insights.' },
@@ -50,6 +51,11 @@ export function Changelog() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Changelog & Updates | AeternaCloud Documentation"
+        description="Stay updated with the latest features, improvements, and bug fixes in AeternaCloud services. Review version history and release notes."
+        url="https://aeternacloud.com/resources/documentation/changelog"
+      />
       <div className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto">

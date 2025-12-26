@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Cloud, Server, Shield, Database, Workflow, Lock, ArrowRight } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function CloudSolutions() {
   const features = [
@@ -38,6 +39,11 @@ export function CloudSolutions() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Cloud Solutions & Migration Services | AeternaCloud"
+        description="Expert cloud solutions including AWS, Azure, and Google Cloud migration, infrastructure management, and cloud-native development services."
+        url="https://aeternacloud.com/services/cloud-solutions"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

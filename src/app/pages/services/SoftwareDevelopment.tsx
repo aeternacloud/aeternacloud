@@ -1,13 +1,14 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Code, Cpu, Database, GitBranch, Layers, Zap, ArrowRight, CheckCircle2, Target, FileText, Rocket } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function SoftwareDevelopment() {
   const features = [
     {
       icon: Code,
       title: 'Custom Software Development',
-      description: 'Tailored solutions built from the ground up to meet your unique business requirements.',
+      description: 'Tailored software solutions designed specifically for your business requirements.',
     },
     {
       icon: Layers,
@@ -52,6 +53,11 @@ export function SoftwareDevelopment() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Software Development Services | AeternaCloud"
+        description="Custom software development solutions including web apps, mobile apps, and enterprise software. Scalable, secure, and tailored to your business needs."
+        url="https://aeternacloud.com/services/software-development"
+      />
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden opacity-[0.02]">

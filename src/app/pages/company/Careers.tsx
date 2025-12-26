@@ -1,10 +1,10 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Briefcase, Heart, TrendingUp, Users, ArrowRight } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function Careers() {
   const benefits = [
-    { icon: Heart, title: 'Health & Wellness', description: 'Comprehensive health insurance and wellness programs' },
     { icon: TrendingUp, title: 'Career Growth', description: 'Continuous learning and advancement opportunities' },
     { icon: Users, title: 'Amazing Team', description: 'Work with talented people who inspire you' },
     { icon: Briefcase, title: 'Flexibility', description: 'Remote work options and flexible schedules' },
@@ -12,6 +12,11 @@ export function Careers() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Careers at AeternaCloud - Join Our Team"
+        description="Explore career opportunities at AeternaCloud. Join our team of innovators and help shape the future of enterprise IT solutions."
+        url="https://aeternacloud.com/company/careers"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

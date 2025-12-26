@@ -1,13 +1,14 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Palette, Figma, Users, Eye, Sparkles, Target, ArrowRight } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function UIUXDesign() {
   const features = [
     {
       icon: Eye,
-      title: 'User Research & Analysis',
-      description: 'Deep understanding of your users through research, personas, and journey mapping.',
+      title: 'User Research',
+      description: 'Deep understanding of user needs through research and analysis.',
     },
     {
       icon: Figma,
@@ -38,6 +39,11 @@ export function UIUXDesign() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="UI/UX Design Services | AeternaCloud"
+        description="Professional UI/UX design services for web and mobile applications. User-centered design, wireframing, prototyping, and design systems."
+        url="https://aeternacloud.com/services/ui-ux-design"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

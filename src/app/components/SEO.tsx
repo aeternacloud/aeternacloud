@@ -13,8 +13,8 @@ export function SEO({
   title = "AeternaCloud - Enterprise IT Solutions & Digital Transformation",
   description = "Leading enterprise IT solutions provider specializing in cloud services, software development, digital marketing, and UI/UX design. Transform your business with cutting-edge technology.",
   keywords = "enterprise IT solutions, cloud services, software development, digital marketing, UI/UX design, web development, app development, IT consulting",
-  image = "https://your-domain.com/og-image.jpg",
-  url = "http://aeternacloud.com",
+  image = "/og-image.jpg",
+  url = "https://aeternacloud.com",
   type = "website"
 }: SEOProps) {
   useEffect(() => {

@@ -1,13 +1,14 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Target, Users, Award, TrendingUp, ArrowRight } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function About() {
   const values = [
     {
       icon: Target,
-      title: 'Innovation First',
-      description: 'We stay ahead of the curve, embracing cutting-edge technologies to deliver future-proof solutions.',
+      title: 'Innovation',
+      description: 'We embrace cutting-edge technologies to deliver forward-thinking solutions.',
     },
     {
       icon: Users,
@@ -35,6 +36,11 @@ export function About() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="About AeternaCloud - Leading Enterprise IT Solutions Provider"
+        description="Learn about AeternaCloud's mission, values, and expertise in delivering cutting-edge IT solutions, software development, and digital transformation services."
+        url="https://aeternacloud.com/company/about"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

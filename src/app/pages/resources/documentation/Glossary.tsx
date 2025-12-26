@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ChevronRight, BookOpen, Key, Globe, Webhook, Server, Code, Gauge, Shield, Database, Cloud, Lock, Zap, Users } from 'lucide-react';
+import { SEO } from '@/app/components/SEO';
 
 const Breadcrumb = () => (
   <nav className="flex items-center text-sm text-gray-500">
@@ -11,7 +12,6 @@ const Breadcrumb = () => (
 
 export function Glossary() {
   const terms = [
-    { icon: Key, term: 'API Key', definition: 'A unique identifier used to authenticate a user, developer, or calling program to an API.' },
     { icon: Globe, term: 'Endpoint', definition: 'A specific URL where an API can be accessed by a client application.' },
     { icon: Webhook, term: 'Webhook', definition: 'An automated message sent from an app when something happens. They have a message (payload) and are sent to a unique URL.' },
     { icon: Server, term: 'Environment', definition: 'A set of computing resources and configurations where an application is deployed. Common examples are "development," "staging," and "production."' },
@@ -27,6 +27,11 @@ export function Glossary() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Glossary of Terms | AeternaCloud Documentation"
+        description="Comprehensive glossary of IT and technology terms used in AeternaCloud documentation. Understand key concepts, acronyms, and technical terminology."
+        url="https://aeternacloud.com/resources/documentation/glossary"
+      />
       <div className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto">

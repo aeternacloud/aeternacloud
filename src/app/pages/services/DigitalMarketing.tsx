@@ -1,13 +1,14 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Megaphone, Mail, Share2, BarChart3, Users, Zap, ArrowRight } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function DigitalMarketing() {
   const features = [
     {
       icon: Megaphone,
       title: 'Social Media Marketing',
-      description: 'Engage your audience across all major social platforms with compelling content.',
+      description: 'Strategic social media campaigns across all major platforms.',
     },
     {
       icon: Mail,
@@ -38,6 +39,11 @@ export function DigitalMarketing() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Digital Marketing Services | AeternaCloud"
+        description="Comprehensive digital marketing services including social media, email marketing, PPC advertising, and content marketing to grow your online presence."
+        url="https://aeternacloud.com/services/digital-marketing"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

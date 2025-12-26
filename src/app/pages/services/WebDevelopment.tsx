@@ -1,13 +1,14 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Globe, Layout, Smartphone, Rocket, ShieldCheck, TrendingUp, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function WebDevelopment() {
   const features = [
     {
       icon: Layout,
-      title: 'Responsive Web Design',
-      description: 'Beautiful, mobile-first websites that look perfect on any device or screen size.',
+      title: 'Responsive Design',
+      description: 'Mobile-first, responsive websites that look perfect on all devices.',
     },
     {
       icon: Rocket,
@@ -43,6 +44,11 @@ export function WebDevelopment() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Web Development Services | AeternaCloud"
+        description="Professional web development services including responsive websites, e-commerce platforms, and web applications. Lightning-fast, SEO-optimized, and user-friendly."
+        url="https://aeternacloud.com/services/web-development"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden opacity-[0.02]">
           <div

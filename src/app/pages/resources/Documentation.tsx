@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Book, Code, CheckSquare, Link as LinkIcon, Library, Wrench, FileClock, ShieldCheck, BookText } from 'lucide-react';
+import { SEO } from '../../components/SEO';
 
 export function Documentation() {
   const docs = [
@@ -15,6 +16,11 @@ export function Documentation() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Documentation & Guides | AeternaCloud"
+        description="Comprehensive documentation including getting started guides, API references, best practices, troubleshooting, and security information."
+        url="https://aeternacloud.com/resources/documentation"
+      />
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-4xl mx-auto">
