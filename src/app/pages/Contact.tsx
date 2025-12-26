@@ -134,7 +134,7 @@ export function Contact() {
 
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               <span className="block text-gray-900">Get In Touch</span>
-              <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-pulse">
                 Let's Build Something Amazing
               </span>
             </h1>
