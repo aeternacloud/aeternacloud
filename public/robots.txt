@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Block access to sensitive files
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /.env
+Disallow: /node_modules/
+
+# Allow crawling of CSS, JS, and image files
+Allow: *.css
+Allow: *.js
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.gif
+Allow: *.svg
+Allow: *.ico
+
+# Sitemap
+Sitemap: https://your-domain.com/sitemap.xml
