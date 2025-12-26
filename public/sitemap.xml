@@ -6,7 +6,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://your-domain.com/</loc>
+    <loc>http://aeternacloud.com/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Main Pages -->
   <url>
-    <loc>https://your-domain.com/contact</loc>
+    <loc>http://aeternacloud.com/contact</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -22,49 +22,49 @@
 
   <!-- Service Pages -->
   <url>
-    <loc>https://your-domain.com/services/software-development</loc>
+    <loc>http://aeternacloud.com/services/software-development</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/services/web-development</loc>
+    <loc>http://aeternacloud.com/services/web-development</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/services/app-development</loc>
+    <loc>http://aeternacloud.com/services/app-development</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/services/ui-ux-design</loc>
+    <loc>http://aeternacloud.com/services/ui-ux-design</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/services/cloud-solutions</loc>
+    <loc>http://aeternacloud.com/services/cloud-solutions</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/services/digital-marketing</loc>
+    <loc>http://aeternacloud.com/services/digital-marketing</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/services/seo-services</loc>
+    <loc>http://aeternacloud.com/services/seo-services</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -72,14 +72,14 @@
 
   <!-- Company Pages -->
   <url>
-    <loc>https://your-domain.com/company/about</loc>
+    <loc>http://aeternacloud.com/company/about</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/company/careers</loc>
+    <loc>http://aeternacloud.com/company/careers</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -87,28 +87,28 @@
 
   <!-- Resource Pages -->
   <url>
-    <loc>https://your-domain.com/resources/documentation</loc>
+    <loc>http://aeternacloud.com/resources/documentation</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/resources/case-studies</loc>
+    <loc>http://aeternacloud.com/resources/case-studies</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/resources/faq</loc>
+    <loc>http://aeternacloud.com/resources/faq</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/resources/support</loc>
+    <loc>http://aeternacloud.com/resources/support</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -116,14 +116,14 @@
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://your-domain.com/legal/privacy</loc>
+    <loc>http://aeternacloud.com/legal/privacy</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/legal/terms</loc>
+    <loc>http://aeternacloud.com/legal/terms</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

@@ -19,4 +19,4 @@ Allow: *.svg
 Allow: *.ico
 
 # Sitemap
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: http://aeternacloud.com/sitemap.xml
