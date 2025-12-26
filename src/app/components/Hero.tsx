@@ -19,15 +19,11 @@ export function Hero() {
             minHeight: '100%',
           }}
         >
-          <source src="/heropage.mp4" type="video/mp4" />
+          <source src="/heropagenew.mp4" type="video/mp4" />
         </video>
         
         {/* Dark overlay to ensure text readability against video */}
-        <div className="absolute inset-0 bg-black/30" /> 
-        
-        {/* Overlay to hide Veo watermark (bottom right corner) */}
-        <div className="absolute bottom-0 right-0 w-36 h-18 bg-black/90 blur-sm rounded-tl-xl" />
-        <div className="absolute bottom-0 right-0 w-32 h-14 bg-black/85" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Main Content */}
