@@ -1,5 +1,13 @@
  {
    "name": "aeternacloud-landing-page",
    "compatibility_date": "2025-12-25",
-   "pages_build_output_dir": "./dist"
+   "pages_build_output_dir": "./dist",
+   "vars": {
+     "VITE_SUPABASE_URL": "https://okxyhtnkewclyggdbqdm.supabase.co",
+     "VITE_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9reHlodG5rZXdjbHlnZ2RicWRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY1ODc4MjUsImV4cCI6MjA4MjE2MzgyNX0.oK5wDuRnWKOSai7LlXLzyWbbR-wv3cCjekfJe4J1Scw",
+     "VITE_EMAILJS_SERVICE_ID": "service_36hpw45",
+     "VITE_EMAILJS_TEMPLATE_ID": "template_vbej1ez",
+     "VITE_EMAILJS_ADMIN_TEMPLATE_ID": "template_rstc5xi",
+     "VITE_EMAILJS_PUBLIC_KEY": "3n1vQ-wlu5xtVrnX5"
+   }
  }
