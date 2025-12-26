@@ -1,8 +1,6 @@
 
 # AeternaCloud Landing Page
 
-This is a code bundle for AeternaCloud Landing Page. The original project is available at https://www.figma.com/design/zkx1OMYMziQADwRfLh3nBO/Enterprise-IT-Solutions-Landing-Page--Community-.
-
   ## Running the code
 
   Run `npm i` to install the dependencies.
