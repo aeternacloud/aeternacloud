@@ -26,8 +26,8 @@ export function Hero() {
         <div className="absolute inset-0 bg-black/30" /> 
         
         {/* Overlay to hide Veo watermark (bottom right corner) */}
-        <div className="absolute bottom-0 right-0 w-32 h-16 bg-black rounded-tl-lg" />
-        <div className="absolute bottom-0 right-0 w-28 h-12 bg-black" />
+        <div className="absolute bottom-0 right-0 w-24 h-12 bg-black rounded-tl-md" />
+        <div className="absolute bottom-0 right-0 w-20 h-8 bg-black" />
       </div>
 
       {/* Main Content */}
