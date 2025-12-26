@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import { AIAssistant } from './components/AIAssistant';
 import { ScrollToTop } from './components/ScrollToTop';
+import { LoadingScreen } from './components/LoadingScreen';
 
 // Pages
 import { Home } from './pages/Home';
@@ -41,9 +43,31 @@ import { Privacy } from './pages/legal/Privacy';
 import { Terms } from './pages/legal/Terms';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time or wait for critical resources
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2 second loading animation
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleLoadingComplete = () => {
+    setShowLoader(false);
+  };
+
   return (
     <Router>
       <ScrollToTop />
+      {showLoader && (
+        <LoadingScreen
+          isLoading={isLoading}
+          onLoadingComplete={handleLoadingComplete}
+        />
+      )}
       <div className="min-h-screen bg-black">
         <Navigation />
         
