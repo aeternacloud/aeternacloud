@@ -114,7 +114,7 @@ export function AIAssistant() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-900 text-white shadow-lg transition-transform hover:scale-105 hover:shadow-xl"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-black border-2 border-white text-white shadow-lg transition-transform hover:scale-105 hover:shadow-xl"
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
